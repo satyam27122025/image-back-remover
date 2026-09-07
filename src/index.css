@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-light text-brand-dark font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-brand-purple to-brand-magenta text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:opacity-90;
+  }
+  .btn-secondary {
+    @apply bg-white border border-brand-purple text-brand-purple font-medium py-3 px-6 rounded-lg shadow-sm hover:bg-brand-light transition-all duration-300;
+  }
+}

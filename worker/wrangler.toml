@@ -1,0 +1,8 @@
+name = "image-back-remover-api"
+main = "src/index.ts"
+compatibility_date = "2024-03-29"
+
+[vars]
+MAX_FILE_SIZE_MB = "10"
+BACKGROUND_REMOVAL_API_URL = "https://api.remove.bg/v1.0/removebg"
+BACKGROUND_REMOVAL_API_KEY = ""
