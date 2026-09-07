@@ -31,7 +31,7 @@ const Home = () => {
 
       updateImageStatus(id, 'Processing');
       
-      const response = await fetch('/api/remove-background', {
+      const response = await fetch('https://image-back-remover-api.myliferollercoaster2712.workers.dev/api/remove-background', {
         method: 'POST',
         body: formData
       });
