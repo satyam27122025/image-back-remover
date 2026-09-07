@@ -49,6 +49,7 @@ export default {
         // Send to real provider
         const providerData = new FormData();
         providerData.append('image_file', image); // Example for remove.bg
+        providerData.append('size', 'auto');
 
         const response = await fetch(env.BACKGROUND_REMOVAL_API_URL || 'https://api.remove.bg/v1.0/removebg', {
           method: 'POST',
@@ -59,7 +60,9 @@ export default {
         });
 
         if (!response.ok) {
-          throw new Error('Upstream provider failed');
+          const errText = await response.text();
+          console.error("Upstream error:", errText);
+          throw new Error(`Upstream provider failed: ${response.status} - ${errText}`);
         }
 
         const processedBlob = await response.blob();
