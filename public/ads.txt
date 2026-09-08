@@ -1,1 +1,4 @@
+# PLACEHOLDER ADS.TXT
+# This file contains a placeholder publisher ID. 
+# Do not submit for AdSense review until this is replaced with your real publisher ID (e.g. pub-1234567890123456)
 google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

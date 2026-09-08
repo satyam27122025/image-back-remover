@@ -12,10 +12,12 @@ import Disclaimer from './pages/Disclaimer';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import NotFound from './pages/NotFound';
+import AnalyticsTracker from './components/AnalyticsTracker';
 
 function App() {
   return (
     <Router>
+      <AnalyticsTracker />
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">

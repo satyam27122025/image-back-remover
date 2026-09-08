@@ -50,6 +50,16 @@ const HowItWorks = () => {
           </div>
         ))}
       </div>
+
+      <div className="mt-16 bg-brand-purple/5 p-8 rounded-2xl border border-brand-purple/10 text-center">
+        <h2 className="text-2xl font-bold text-brand-dark mb-4">Ready to Create Your Transparent Background Maker?</h2>
+        <p className="text-brand-muted mb-6 max-w-2xl mx-auto">
+          Our free background remover online is designed to be the ultimate photo background remover. You do not need any technical skills or advanced software to isolate your subjects. The AI background remover processes your images securely and outputs high-quality results every single time.
+        </p>
+        <a href="/" className="inline-block px-8 py-3 bg-brand-purple text-white font-semibold rounded-lg hover:bg-brand-magenta transition-colors shadow-md">
+          Go to Homepage & Try It Now
+        </a>
+      </div>
     </div>
   );
 };
