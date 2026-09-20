@@ -206,6 +206,16 @@ const Home = () => {
           </div>
         </div>
 
+        <h3 className="text-2xl font-semibold text-brand-dark mt-12 mb-4">The Technology Behind Our AI</h3>
+        <p className="text-brand-muted">
+          Our background eraser is powered by state-of-the-art neural networks. Unlike traditional tools that require you to manually click and trace around a subject, our AI has been trained on millions of images. It instantly recognizes foreground subjects—such as humans, animals, cars, and products—and separates them from the background with pixel-perfect precision. It can even handle complex edges like hair and fur. This makes it an invaluable tool for e-commerce store owners, social media managers, and digital artists.
+        </p>
+
+        <h3 className="text-2xl font-semibold text-brand-dark mt-12 mb-4">Want to learn more?</h3>
+        <p className="text-brand-muted">
+          Check out our <a href="/blog" className="text-brand-purple hover:underline font-medium">Blog & Resources</a> section for deep dives into image editing, tips for e-commerce photography, and the latest news on AI technology.
+        </p>
+
         <div className="mt-12 p-6 bg-brand-purple/5 rounded-2xl border border-brand-purple/10">
           <h3 className="text-xl font-bold text-brand-dark mb-4 text-center">Who Is This Tool For?</h3>
           <p className="text-brand-muted text-center mb-6">

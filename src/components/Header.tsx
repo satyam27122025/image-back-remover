@@ -15,6 +15,7 @@ const Header = () => {
           <Link to="/how-it-works" className="hover:text-brand-magenta transition-colors">How It Works</Link>
           <Link to="/faq" className="hover:text-brand-magenta transition-colors">FAQ</Link>
           <Link to="/about" className="hover:text-brand-magenta transition-colors">About</Link>
+          <Link to="/blog" className="hover:text-brand-magenta transition-colors">Blog</Link>
           <Link to="/contact" className="hover:text-brand-magenta transition-colors">Contact</Link>
         </nav>
         <div className="md:hidden">

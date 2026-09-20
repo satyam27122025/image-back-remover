@@ -21,14 +21,24 @@ const About = () => {
       </div>
 
       <div className="bg-white p-8 mt-8 rounded-xl shadow-sm border border-gray-100">
+        <h2 className="text-2xl font-bold mb-4 text-brand-purple">Our Mission</h2>
+        <p className="text-brand-muted mb-6">
+          Our mission is to democratize digital design. We believe that everyone—from established e-commerce giants to independent creators—deserves access to professional-grade image editing tools. By removing the financial and technical barriers to high-quality design, we empower our users to tell better visual stories and grow their businesses.
+        </p>
+
         <h2 className="text-2xl font-bold mb-4 text-brand-purple">Who Is This For?</h2>
         <p className="text-brand-muted mb-6">
           Whether you are an e-commerce store owner needing clean product photos, a designer mocking up a presentation, a marketer creating social media graphics, or just someone looking to make a fun meme, our tool is designed to save you time.
         </p>
 
         <h2 className="text-2xl font-bold mb-4 text-brand-purple">The Technology</h2>
+        <p className="text-brand-muted mb-6">
+          We utilize state-of-the-art artificial intelligence models that have been trained on millions of images to instantly recognize the difference between foreground subjects and background scenery. This allows us to deliver pixel-perfect cutouts in seconds, handling complex edges like hair and semi-transparent objects with ease.
+        </p>
+        
+        <h2 className="text-2xl font-bold mb-4 text-brand-purple">Commitment to Privacy</h2>
         <p className="text-brand-muted">
-          We utilize state-of-the-art artificial intelligence models that have been trained on millions of images to instantly recognize the difference between foreground subjects and background scenery. This allows us to deliver pixel-perfect cutouts in seconds.
+          Unlike many other online image tools, we do not claim ownership of your photos, nor do we store them permanently. Your files are processed securely and deleted shortly after your session, ensuring your data remains yours.
         </p>
       </div>
     </div>
