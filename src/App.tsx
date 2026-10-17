@@ -13,6 +13,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import NotFound from './pages/NotFound';
 import AnalyticsTracker from './components/AnalyticsTracker';
+import CookieConsentBanner from './components/CookieConsentBanner';
 import Blog from './pages/Blog';
 import Article1 from './pages/blog/Article1';
 import Article2 from './pages/blog/Article2';
@@ -43,6 +44,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <CookieConsentBanner />
       </div>
     </Router>
   );

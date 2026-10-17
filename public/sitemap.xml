@@ -17,8 +17,8 @@
   </url>
   <url>
     <loc>https://image-back-remover.pages.dev/about</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://image-back-remover.pages.dev/contact</loc>
@@ -26,23 +26,43 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://image-back-remover.pages.dev/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://image-back-remover.pages.dev/blog/ecommerce-backgrounds</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://image-back-remover.pages.dev/blog/ai-image-editing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://image-back-remover.pages.dev/blog/top-5-uses</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://image-back-remover.pages.dev/privacy-policy</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://image-back-remover.pages.dev/terms</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://image-back-remover.pages.dev/cookie-policy</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://image-back-remover.pages.dev/disclaimer</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.4</priority>
   </url>
 </urlset>
