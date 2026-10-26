@@ -194,12 +194,10 @@ async function prerender() {
     }
   }
 
-  // Ensure _redirects exists in dist
-  const redirectsSrc = path.resolve(rootDir, 'public', '_redirects');
+  // Clean up any old _redirects from dist if present to avoid Cloudflare 100324 loop error
   const redirectsDest = path.resolve(distDir, '_redirects');
-  if (fs.existsSync(redirectsSrc)) {
-    fs.copyFileSync(redirectsSrc, redirectsDest);
-    console.log('  ✓ Copied _redirects to dist/');
+  if (fs.existsSync(redirectsDest)) {
+    fs.unlinkSync(redirectsDest);
   }
 
   console.log('🎉 Pre-rendering complete! All 21 pages have full static publisher content.');
