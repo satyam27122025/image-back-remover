@@ -125,11 +125,32 @@ async function prerender() {
   }
   const template = fs.readFileSync(templatePath, 'utf-8');
 
-  const serverEntryPath = path.resolve(distSsrDir, 'entry-server.js');
+  // Dynamically locate server entry file (can be entry-server.js or assets/entry-server-[hash].js)
+  let serverEntryPath = path.resolve(distSsrDir, 'entry-server.js');
   if (!fs.existsSync(serverEntryPath)) {
-    throw new Error('dist-ssr/entry-server.js not found! Run vite build --ssr first.');
+    const assetsDir = path.resolve(distSsrDir, 'assets');
+    if (fs.existsSync(assetsDir)) {
+      const files = fs.readdirSync(assetsDir);
+      const match = files.find(f => f.startsWith('entry-server') && f.endsWith('.js'));
+      if (match) {
+        serverEntryPath = path.resolve(assetsDir, match);
+      }
+    }
   }
 
+  if (!fs.existsSync(serverEntryPath)) {
+    const files = fs.readdirSync(distSsrDir);
+    const match = files.find(f => f.includes('entry-server') && f.endsWith('.js'));
+    if (match) {
+      serverEntryPath = path.resolve(distSsrDir, match);
+    }
+  }
+
+  if (!fs.existsSync(serverEntryPath)) {
+    throw new Error(`Could not find entry-server file in ${distSsrDir}. Files: ${fs.readdirSync(distSsrDir).join(', ')}`);
+  }
+
+  console.log(`  ✓ Loaded SSR entry from: ${path.relative(rootDir, serverEntryPath)}`);
   const { render } = await import(`file://${serverEntryPath}`);
 
   for (const route of routes) {
