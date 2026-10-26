@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import JSZip from 'jszip';
-import { saveAs } from 'file-saver';
+import fileSaver from 'file-saver';
+const saveAs = (fileSaver as any).saveAs || fileSaver;
 import { DownloadCloud, Trash2 } from 'lucide-react';
 import UploadZone from '../components/UploadZone';
 import ImageCard, { type ImageItem, type ProcessingStatus } from '../components/ImageCard';
@@ -173,58 +174,215 @@ const Home = () => {
         </div>
       )}
 
-      {/* SEO Content Section */}
+      {/* SEO & Publisher Content Section */}
       <div className="max-w-4xl mx-auto mt-24 prose prose-brand prose-lg">
-        <h2 className="text-3xl font-bold text-brand-dark text-center mb-8">What Is a Background Remover?</h2>
+        {/* Core Value Statement */}
+        <div className="text-center mb-12 not-prose">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-purple bg-brand-purple/10 px-3 py-1 rounded-full">
+            Free Online Image Utility &amp; Publisher Guide
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3 mb-4">
+            How Our AI Background Remover Works
+          </h2>
+          <p className="text-brand-muted max-w-2xl mx-auto text-base">
+            Isolating a subject from its background used to require expensive desktop software, professional graphic design skills, and tedious manual pen-tool tracing. Today, our free neural-network powered tool automates the entire process in under 5 seconds.
+          </p>
+        </div>
+
+        {/* Feature Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-12">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-purple-100 text-brand-purple flex items-center justify-center font-bold mb-4">
+              01
+            </div>
+            <h3 className="font-bold text-lg text-brand-dark mb-2">Automated Subject Detection</h3>
+            <p className="text-xs text-brand-muted leading-relaxed">
+              Our vision transformers analyze semantic contours, distinguishing foreground people, products, vehicles, and pets from complex background scenes.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-pink-100 text-brand-magenta flex items-center justify-center font-bold mb-4">
+              02
+            </div>
+            <h3 className="font-bold text-lg text-brand-dark mb-2">Sub-Pixel Hair Matting</h3>
+            <p className="text-xs text-brand-muted leading-relaxed">
+              Fine edge details like loose hair strands, pet fur, and transparent glass are preserved with gentle alpha transitions, preventing harsh blocky cutouts.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold mb-4">
+              03
+            </div>
+            <h3 className="font-bold text-lg text-brand-dark mb-2">High-Res PNG Export</h3>
+            <p className="text-xs text-brand-muted leading-relaxed">
+              Export lossless 24-bit transparent PNG files or batch download multiple results in a clean ZIP file ready for e-commerce or graphic design.
+            </p>
+          </div>
+        </div>
+
+        <h3 className="text-2xl font-bold text-brand-dark mt-12 mb-4">
+          AI Background Removal vs. Manual Photoshop Editing
+        </h3>
         <p className="text-brand-muted">
-          A background remover is an essential tool for creating professional, clean visuals. Whether you're a designer, marketer, or a casual user, our <strong>free background remover online</strong> uses cutting-edge AI to isolate the main subject of your photo and erase everything else. It converts standard JPEGs and PNGs into a <strong>transparent background maker</strong> format instantly, ensuring you get a perfect transparent PNG ready for any project.
+          Compare the efficiency of our free automated AI tool against conventional manual photo editing methods:
         </p>
 
-        <h3 className="text-2xl font-semibold text-brand-dark mt-8 mb-4">How to Remove a Background</h3>
+        {/* Comparison Table */}
+        <div className="not-prose my-8 overflow-x-auto">
+          <table className="w-full text-left text-sm border-collapse border border-gray-200">
+            <thead>
+              <tr className="bg-gray-100 text-brand-dark font-semibold">
+                <th className="p-3 border border-gray-200">Feature</th>
+                <th className="p-3 border border-gray-200 text-brand-purple font-bold">Image Back Remover (AI)</th>
+                <th className="p-3 border border-gray-200">Manual Photoshop Pen Tool</th>
+                <th className="p-3 border border-gray-200">Magic Wand / Quick Selection</th>
+              </tr>
+            </thead>
+            <tbody className="text-brand-muted divide-y divide-gray-200">
+              <tr>
+                <td className="p-3 border border-gray-200 font-medium text-brand-dark">Time per Image</td>
+                <td className="p-3 border border-gray-200 text-green-600 font-bold">3 - 5 seconds</td>
+                <td className="p-3 border border-gray-200">10 - 25 minutes</td>
+                <td className="p-3 border border-gray-200">2 - 5 minutes</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-gray-200 font-medium text-brand-dark">Skill Level Required</td>
+                <td className="p-3 border border-gray-200 text-green-600 font-bold">None (Drag &amp; drop)</td>
+                <td className="p-3 border border-gray-200">Advanced designer</td>
+                <td className="p-3 border border-gray-200">Intermediate</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-gray-200 font-medium text-brand-dark">Hair &amp; Fur Precision</td>
+                <td className="p-3 border border-gray-200 text-green-600 font-bold">High (Alpha Matting)</td>
+                <td className="p-3 border border-gray-200">High (Requires Refine Edge)</td>
+                <td className="p-3 border border-gray-200 text-red-500">Poor (Jagged / Clipped)</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-gray-200 font-medium text-brand-dark">Batch Processing</td>
+                <td className="p-3 border border-gray-200 text-green-600 font-bold">Yes (Up to 5 images)</td>
+                <td className="p-3 border border-gray-200">No (One by one)</td>
+                <td className="p-3 border border-gray-200">No</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-gray-200 font-medium text-brand-dark">Cost</td>
+                <td className="p-3 border border-gray-200 text-green-600 font-bold">100% Free Online</td>
+                <td className="p-3 border border-gray-200">$20 - $55 / month subscription</td>
+                <td className="p-3 border border-gray-200">Paid software required</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* Dedicated Use-Cases Section */}
+        <h3 className="text-2xl font-bold text-brand-dark mt-12 mb-4">
+          Popular Use Cases for Transparent Backgrounds
+        </h3>
         <p className="text-brand-muted">
-          Learning how to remove an image background shouldn't require complex software. Our AI background remover does the heavy lifting for you. Simply drag and drop your photos into the upload zone above. Within seconds, the AI analyzes the pixels, detects the foreground, and outputs a transparent image. You can process up to 5 images simultaneously, making it an excellent batch photo background remover. Need more details? Check out our <a href="/how-it-works" className="text-brand-purple hover:underline">How It Works</a> guide.
+          Our free transparent cutout maker serves a diverse community of online professionals:
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-6">
+          <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <h4 className="font-bold text-brand-dark text-lg mb-2">E-Commerce Product Listings</h4>
+            <p className="text-xs text-brand-muted mb-4 leading-relaxed">
+              Standardize your catalog on Amazon, Shopify, Etsy, and eBay. Remove distracting showroom floors, shadows, and packaging to boost sales conversion rates.
+            </p>
+            <a href="/ecommerce-product-photos" className="text-xs font-bold text-brand-purple hover:underline">
+              Explore E-Commerce Solutions &rarr;
+            </a>
+          </div>
+
+          <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <h4 className="font-bold text-brand-dark text-lg mb-2">Transparent Signatures for PDFs</h4>
+            <p className="text-xs text-brand-muted mb-4 leading-relaxed">
+              Convert handwritten paper signatures into clean PNG stamps without gray scanner boxes for legally binding contracts, Word documents, and digital invoices.
+            </p>
+            <a href="/transparent-signature-maker" className="text-xs font-bold text-brand-purple hover:underline">
+              Explore Signature Maker &rarr;
+            </a>
+          </div>
+
+          <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <h4 className="font-bold text-brand-dark text-lg mb-2">Corporate Headshots &amp; LinkedIn</h4>
+            <p className="text-xs text-brand-muted mb-4 leading-relaxed">
+              Erase messy home or office backgrounds from casual smartphone portraits and place yourself on clean executive studio gradients.
+            </p>
+            <a href="/portrait-headshot-remover" className="text-xs font-bold text-brand-purple hover:underline">
+              Explore Portrait Eraser &rarr;
+            </a>
+          </div>
+
+          <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <h4 className="font-bold text-brand-dark text-lg mb-2">Content Creators &amp; YouTube</h4>
+            <p className="text-xs text-brand-muted mb-4 leading-relaxed">
+              Extract portraits and props to craft high-CTR YouTube thumbnails, Instagram graphics, TikTok overlays, and custom sticker packs.
+            </p>
+            <a href="/blog/top-5-uses" className="text-xs font-bold text-brand-purple hover:underline">
+              Explore Creator Guides &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           <div>
-            <h4 className="text-xl font-semibold text-brand-dark mb-3">Supported Formats & Limits</h4>
-            <ul className="list-disc pl-5 text-brand-muted space-y-2">
+            <h4 className="text-xl font-semibold text-brand-dark mb-3">Supported Formats &amp; Limits</h4>
+            <ul className="list-disc pl-5 text-brand-muted space-y-2 text-sm">
               <li>Upload JPG, JPEG, PNG, or WebP images</li>
               <li>Maximum file size: 10MB per image</li>
-              <li>Upload up to 5 images at a time</li>
-              <li>Instantly download transparent PNG files</li>
+              <li>Upload up to 5 images simultaneously in batch mode</li>
+              <li>Instantly download transparent PNG files or bulk ZIP</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-xl font-semibold text-brand-dark mb-3">Privacy & Security</h4>
-            <ul className="list-disc pl-5 text-brand-muted space-y-2">
-              <li>Images are processed over a secure HTTPS connection</li>
-              <li>We do not permanently store your uploads</li>
-              <li>No account or registration required</li>
-              <li>Learn more in our <a href="/privacy-policy" className="text-brand-purple hover:underline">Privacy Policy</a></li>
+            <h4 className="text-xl font-semibold text-brand-dark mb-3">Privacy &amp; Security Standards</h4>
+            <ul className="list-disc pl-5 text-brand-muted space-y-2 text-sm">
+              <li>All transfers are secured with TLS 256-bit encryption</li>
+              <li>Uploaded images are automatically purged after processing</li>
+              <li>Zero permanent server storage or model training on user files</li>
+              <li>Read our comprehensive <a href="/privacy-policy" className="text-brand-purple hover:underline">Privacy Policy</a></li>
             </ul>
           </div>
         </div>
 
-        <h3 className="text-2xl font-semibold text-brand-dark mt-12 mb-4">The Technology Behind Our AI</h3>
-        <p className="text-brand-muted">
-          Our background eraser is powered by state-of-the-art neural networks. Unlike traditional tools that require you to manually click and trace around a subject, our AI has been trained on millions of images. It instantly recognizes foreground subjects—such as humans, animals, cars, and products—and separates them from the background with pixel-perfect precision. It can even handle complex edges like hair and fur. This makes it an invaluable tool for e-commerce store owners, social media managers, and digital artists.
-        </p>
+        {/* Embedded FAQ Section */}
+        <h3 className="text-2xl font-semibold text-brand-dark mt-16 mb-6 text-center">
+          Frequently Asked Questions
+        </h3>
+        <div className="space-y-4 not-prose">
+          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+            <h4 className="font-bold text-brand-dark text-sm mb-1">Is Image Back Remover really free?</h4>
+            <p className="text-xs text-brand-muted leading-relaxed">
+              Yes, our online background remover is 100% free with no hidden paywalls, subscriptions, or credit card requirements. We support our infrastructure through non-intrusive advertisements.
+            </p>
+          </div>
+          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+            <h4 className="font-bold text-brand-dark text-sm mb-1">What happens to my uploaded images?</h4>
+            <p className="text-xs text-brand-muted leading-relaxed">
+              Your images are processed securely via encrypted HTTPS channels and are automatically deleted from server memory immediately after processing. We never store or resell user images.
+            </p>
+          </div>
+          <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+            <h4 className="font-bold text-brand-dark text-sm mb-1">How can I download all processed images at once?</h4>
+            <p className="text-xs text-brand-muted leading-relaxed">
+              Once your uploaded images finish processing, simply click the "Download All as ZIP" button in the Processing Workspace to download every transparent PNG in a single archive.
+            </p>
+          </div>
+        </div>
 
-        <h3 className="text-2xl font-semibold text-brand-dark mt-12 mb-4">Want to learn more?</h3>
-        <p className="text-brand-muted">
-          Check out our <a href="/blog" className="text-brand-purple hover:underline font-medium">Blog & Resources</a> section for deep dives into image editing, tips for e-commerce photography, and the latest news on AI technology.
-        </p>
-
-        <div className="mt-12 p-6 bg-brand-purple/5 rounded-2xl border border-brand-purple/10">
-          <h3 className="text-xl font-bold text-brand-dark mb-4 text-center">Who Is This Tool For?</h3>
-          <p className="text-brand-muted text-center mb-6">
-            Our tool is universally designed for e-commerce sellers isolating products, content creators making YouTube thumbnails, real estate agents editing property photos, and everyday users making memes or stickers.
+        {/* Navigation Portal */}
+        <div className="mt-16 p-8 bg-brand-purple/5 rounded-2xl border border-brand-purple/10 text-center not-prose">
+          <h3 className="text-xl font-bold text-brand-dark mb-2">Explore Our Guides and Documentation</h3>
+          <p className="text-brand-muted text-sm mb-6 max-w-lg mx-auto">
+            Learn more about machine learning segmentation, photography tips, and commercial e-commerce standards in our resource center.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
-            <a href="/faq" className="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow text-brand-purple transition-all">Read the FAQ</a>
-            <a href="/about" className="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow text-brand-purple transition-all">About Us</a>
-            <a href="/contact" className="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow text-brand-purple transition-all">Contact Support</a>
+          <div className="flex flex-wrap justify-center gap-3 text-xs font-semibold">
+            <a href="/how-it-works" className="px-4 py-2.5 bg-white rounded-lg shadow-sm hover:shadow text-brand-purple transition-all border border-gray-100">How It Works</a>
+            <a href="/blog" className="px-4 py-2.5 bg-white rounded-lg shadow-sm hover:shadow text-brand-purple transition-all border border-gray-100">Read the Blog</a>
+            <a href="/faq" className="px-4 py-2.5 bg-white rounded-lg shadow-sm hover:shadow text-brand-purple transition-all border border-gray-100">Full FAQ</a>
+            <a href="/about" className="px-4 py-2.5 bg-white rounded-lg shadow-sm hover:shadow text-brand-purple transition-all border border-gray-100">About Our Team</a>
+            <a href="/contact" className="px-4 py-2.5 bg-white rounded-lg shadow-sm hover:shadow text-brand-purple transition-all border border-gray-100">Contact Support</a>
           </div>
         </div>
       </div>

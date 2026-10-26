@@ -71,10 +71,41 @@ const About = () => {
           For full details on how we handle your data, please review our <Link to="/privacy-policy" className="text-brand-purple hover:underline">Privacy Policy</Link>.
         </p>
 
+        <h2 className="text-2xl font-bold mt-8 mb-4 text-brand-purple">Editorial Team &amp; Authors</h2>
+        <p className="text-brand-muted mb-4">
+          Our articles and tutorials are produced by seasoned digital media creators and machine learning vision researchers:
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose mb-6">
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
+            <h4 className="font-bold text-brand-dark text-sm">Alex Rivera</h4>
+            <p className="text-xs text-brand-purple font-medium mb-1">Senior Digital Imaging Specialist</p>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Focuses on e-commerce catalog standards, file compression optimization (PNG/WebP), and digital document workflows.
+            </p>
+          </div>
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
+            <h4 className="font-bold text-brand-dark text-sm">Maya Kapoor</h4>
+            <p className="text-xs text-brand-purple font-medium mb-1">Commercial Product Photographer</p>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              10+ years of commercial studio lighting, portrait photography, and automated post-production pipeline expertise.
+            </p>
+          </div>
+        </div>
+
         <h2 className="text-2xl font-bold mt-8 mb-4 text-brand-purple">How We're Funded</h2>
         <p className="text-brand-muted">
           Image Back Remover is a free tool. To keep the service free and accessible to everyone, we display non-intrusive advertisements through Google AdSense. These ads help cover our server costs, AI processing fees, and ongoing development expenses. We are committed to maintaining a clean, professional user experience and will never compromise usability with excessive or disruptive advertising.
         </p>
+
+        <div className="mt-8 pt-6 border-t border-gray-100 text-sm text-brand-muted">
+          <p>
+            For inquiries, feedback, or partnerships, reach us at{' '}
+            <a href="mailto:support@imagebackremover.com" className="text-brand-purple font-medium hover:underline">
+              support@imagebackremover.com
+            </a>{' '}
+            or visit our <Link to="/contact" className="text-brand-purple font-medium hover:underline">Contact Page</Link>.
+          </p>
+        </div>
       </div>
     </div>
   );

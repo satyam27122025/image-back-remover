@@ -1,15 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Clock, Award } from 'lucide-react';
 
 const Article3 = () => {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-3xl prose prose-brand">
-      <Link to="/blog" className="text-brand-purple hover:underline mb-8 inline-block font-medium">
-        ← Back to Blog
-      </Link>
-      
-      <h1 className="text-4xl font-bold mb-4 text-brand-dark">Top 5 Uses for a Background Remover Tool</h1>
-      <p className="text-sm text-brand-purple/70 font-medium mb-8">Published: September 5, 2026</p>
+    <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <nav className="flex items-center space-x-2 text-sm text-brand-muted mb-6">
+        <Link to="/" className="hover:text-brand-purple">Home</Link>
+        <span>/</span>
+        <Link to="/blog" className="hover:text-brand-purple">Blog</Link>
+        <span>/</span>
+        <span className="text-brand-dark font-medium truncate">Creative Uses for Background Removers</span>
+      </nav>
+
+      <article className="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-gray-100 prose prose-brand max-w-none">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4 leading-tight">
+          Top Creative Uses for a Transparent Background Remover Tool
+        </h1>
+
+        <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-gray-500 pb-6 mb-8 border-b border-gray-100 not-prose">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 rounded-full bg-brand-yellow/30 text-brand-dark flex items-center justify-center font-bold">
+              ED
+            </div>
+            <span>By <strong>Editorial Team</strong> (Image Back Remover)</span>
+          </div>
+          <span className="hidden sm:inline">•</span>
+          <div className="flex items-center space-x-1">
+            <Clock size={15} />
+            <span>5 min read</span>
+          </div>
+          <span className="hidden sm:inline">•</span>
+          <div className="flex items-center space-x-1 text-green-600">
+            <Award size={15} />
+            <span>Creator Playbook</span>
+          </div>
+        </div>
 
       <p>
         Removing the background from an image might seem like a simple technical trick, but it is actually one of the most powerful and versatile tools in modern digital media. Creating a transparent PNG unlocks endless creative possibilities. If you're wondering how you can leverage a background remover, here are the top 5 most popular and effective use cases.
@@ -51,6 +77,7 @@ const Article3 = () => {
           Go to the Background Remover
         </Link>
       </div>
+      </article>
     </div>
   );
 };

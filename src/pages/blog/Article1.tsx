@@ -1,15 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Clock, Award, CheckCircle2 } from 'lucide-react';
 
 const Article1 = () => {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-3xl prose prose-brand">
-      <Link to="/blog" className="text-brand-purple hover:underline mb-8 inline-block font-medium">
-        ← Back to Blog
-      </Link>
-      
-      <h1 className="text-4xl font-bold mb-4 text-brand-dark">Why E-commerce Stores Need Pure White Backgrounds</h1>
-      <p className="text-sm text-brand-purple/70 font-medium mb-8">Published: September 15, 2026</p>
+    <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <nav className="flex items-center space-x-2 text-sm text-brand-muted mb-6">
+        <Link to="/" className="hover:text-brand-purple">Home</Link>
+        <span>/</span>
+        <Link to="/blog" className="hover:text-brand-purple">Blog</Link>
+        <span>/</span>
+        <span className="text-brand-dark font-medium truncate">E-Commerce White Backgrounds</span>
+      </nav>
+
+      <article className="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-gray-100 prose prose-brand max-w-none">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4 leading-tight">
+          Why E-Commerce Stores Need Pure White Backgrounds
+        </h1>
+
+        <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-gray-500 pb-6 mb-8 border-b border-gray-100 not-prose">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 rounded-full bg-brand-purple/10 text-brand-purple flex items-center justify-center font-bold">
+              AR
+            </div>
+            <span>By <strong>Alex Rivera</strong> (Digital Imaging Specialist)</span>
+          </div>
+          <span className="hidden sm:inline">•</span>
+          <div className="flex items-center space-x-1">
+            <Clock size={15} />
+            <span>6 min read</span>
+          </div>
+          <span className="hidden sm:inline">•</span>
+          <div className="flex items-center space-x-1 text-green-600">
+            <Award size={15} />
+            <span>Marketplace Compliant</span>
+          </div>
+        </div>
+
+        <div className="not-prose my-8 p-6 bg-purple-50/70 rounded-xl border border-purple-200/60">
+          <h3 className="text-base font-bold text-brand-dark mb-2 flex items-center">
+            <CheckCircle2 size={18} className="text-brand-purple mr-2" /> Key E-Commerce Takeaways
+          </h3>
+          <ul className="text-sm text-brand-dark space-y-1.5 list-disc pl-5">
+            <li>Amazon and Google Shopping mandate pure white backgrounds (RGB 255, 255, 255) for main product listings.</li>
+            <li>Eliminating visual distractions boosts buyer conversion rates by up to 30%.</li>
+            <li>Standardized cutouts create a cohesive, trustworthy brand aesthetic on Shopify and WooCommerce storefronts.</li>
+            <li>Transparent PNG cutouts can be easily repurposed for social media ads, promotional banners, and email newsletters.</li>
+          </ul>
+        </div>
 
       <p>
         In the highly competitive world of online retail, the quality of your product images can make or break a sale. If you've ever wondered why marketplaces like Amazon, eBay, and Shopify merchants predominantly use pure white backgrounds, there are several compelling reasons rooted in consumer psychology, marketplace rules, and technical advantages.
@@ -46,6 +84,7 @@ const Article1 = () => {
           Try the Background Remover Free
         </Link>
       </div>
+      </article>
     </div>
   );
 };

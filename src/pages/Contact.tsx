@@ -70,9 +70,22 @@ const Contact = () => {
         )}
       </div>
 
-      <div className="mt-8 text-center text-brand-muted flex items-center justify-center">
-        <Mail size={16} className="mr-2" />
-        support@imagebackremover.com
+      <div className="mt-8 text-center text-brand-muted space-y-2">
+        <div className="flex items-center justify-center">
+          <Mail size={16} className="mr-2 text-brand-purple" />
+          <a href="mailto:support@imagebackremover.com" className="hover:text-brand-purple hover:underline font-medium">
+            support@imagebackremover.com
+          </a>
+        </div>
+        <p className="text-xs text-gray-400">
+          Average Response Time: 24 to 48 business hours • Support Hours: Monday – Friday, 9:00 AM – 6:00 PM UTC
+        </p>
+        <p className="text-xs text-gray-400">
+          Have common questions about file formats or batch limits? Check our{' '}
+          <a href="/faq" className="text-brand-purple hover:underline">
+            FAQ Page
+          </a>.
+        </p>
       </div>
     </div>
   );
